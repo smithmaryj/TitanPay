@@ -1,0 +1,3 @@
+class Receipt:
+
+    def
