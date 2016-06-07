@@ -64,9 +64,17 @@ class HourlyEmployee(Employees):
         return self.__hourly_rate
 
 def main():
+    #creates an object from the Hourly Employee subclass of the Employee superclass
+    #the employee is Adtian Tillman, his pay rate is $25/hour
+    
     adrian = HourlyEmployee("Tillman", "Adrian")
-    hourly_rate = "$25/hr"
+    hourly_rate = "his salary is $25/hour"
 
+    #Display the Hourly Employees information
+    
     print(adrian.get_full_name())
     print(hourly_rate.get_hourly_rate())
+    
+    #Call the main function
 
+main()
