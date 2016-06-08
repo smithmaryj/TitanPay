@@ -76,6 +76,4 @@ def main():
     print(hourly_rate.get_hourly_rate())
 
     # Call the main function
-
-
 main()
