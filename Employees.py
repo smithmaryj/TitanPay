@@ -99,3 +99,12 @@ class SalariedEmployee(Employees):
 
     def get_commission_rate(self, commission_rate):
         return self.__commission_rate
+
+
+    # Accessor methods for the __salary and __commission_rate attributes
+
+    def get_salary(self, salary):
+        return self.__salary
+
+    def get_commission_rate(self, commission_rate):
+        return self.__commission_rate
