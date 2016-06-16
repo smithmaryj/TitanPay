@@ -1,6 +1,6 @@
 # Mary J Smith, 2295760
 # The Employees class represents a superclass of general employee information needed for Titan Payroll to process
-
+import receipt
 class Employees:
     # the __init__ method accepts the arguements for general employee information like employee id, full name, and
     # weekly dues to the union services. It initializes the data attributes with these values
@@ -91,15 +91,6 @@ class SalariedEmployee(Employees):
 
     def set_commission_rate(self, commission_rate):
         self.__commission_rate = commission_rate
-
-    # Accessor methods for the __salary and __commission_rate attributes
-
-    def get_salary(self, salary):
-        return self.__salary
-
-    def get_commission_rate(self, commission_rate):
-        return self.__commission_rate
-
 
     # Accessor methods for the __salary and __commission_rate attributes
 
