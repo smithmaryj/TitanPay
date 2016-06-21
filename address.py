@@ -1,3 +1,5 @@
+import receipt
+
 class Address:
 
     def __init__(self):
@@ -42,7 +44,5 @@ if __name__ == "__main__":
     address_state.set_state("Fl.")
     address_zip.set_zip("33712")
     print("Address: " , address_street_address.get_street_address() , address_city.get_city() , address_state.get_state() , address_zip.get_zip())
-
-
 
 
