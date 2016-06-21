@@ -1,6 +1,5 @@
 import Employees
 
-
 class TimeCard(Employees.HourlyEmployee):
     def __init__(self, date, time, clock_in, clock_out, total_worked):
         self.__date = date
@@ -59,5 +58,11 @@ if __name__ == "__main__":
     timecard_total_worked.set_total_worked("40 hours")
     timecard_hourly_rate.set_hourly_rate("$20.00")
     print("Calculated Pay Rate: ", timecard_total_worked.get_total_worked(), timecard_rate.get_rate())
+
+class AddTimeCard(object):
+    def __init__(self, employee_id, date, hours):
+        self.employee_id = employee_id
+        self.date = date
+        self.hours = hours
 
 
