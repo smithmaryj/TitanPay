@@ -1,0 +1,155 @@
+# Mary J Smith, 2295760
+# The Employees class represents a superclass of general employee information needed for Titan Payroll to process
+
+class Employee(object):
+# the __init__ method accepts the arguements for general employee information like employee id, full name, and
+# weekly dues to the union services. It initializes the data attributes with these values
+
+    def __init__(self, employee_id, last_name, first_name, weekly_dues):
+        self.__employee_id = employee_id
+        self.__last_name = last_name
+        self.__first_name = first_name
+        self.__weekly_dues = weekly_dues
+
+        # Mutator methods for the classes
+        # data attributes
+
+    def set_employee_id(self, employee_id):
+        self.__employee_id
+
+    def set_last_name(self, last_name):
+        self.__last_name
+
+    def set_first_name(self, first_name):
+        self.__first_name
+
+    def set_weekly_dues(self, weekly_dues):
+        self.__weekly_dues
+
+    # Accessor methods for the classes
+    # data attributes
+    def get_employee_id(self):
+        return self.__employee_id
+
+    def get_last_name(self):
+        return self.__last_name
+
+    def get_first_name(self):
+        return self.__first_name
+
+    def get_weekly_dues(self):
+        return self.__weekly_dues
+
+class HourlyEmployee(Employee):
+# the __init__ method accepts the arguments for the general employee information and the
+# specific salaried employee information like employee id, full name, and weekly dues to
+# the union services. It initializes the data attributes with these values
+
+    def __init__(self, employee_id, last_name, first_name, hourly_rate, weekly_dues):
+    # Call the superclass's __init__method and pass the arguments necessary for the
+    # general employee; self is also passed as an argument.
+        Employee.__init__(self, employee_id, last_name, first_name, weekly_dues)
+
+        # inititalizes the __hourly_rate attribute
+        self.__hourly_rate = hourly_rate
+
+    # Mutator methods for the __hourly_rate attribute
+    def set_hourly_rate(self, hourly_rate):
+        self.__hourly_rate = hourly_rate
+
+    # Accessor methods for the  __hourly_rate attribute
+    def get_hourly_rate(self, hourly_rate):
+        return self.__hourly_rate
+
+# The Type of Employee represents that of a salaried one;
+# it is a subclass of the Employee class.
+
+class SalariedEmployee(Employee):
+# the __init__ method accepts the arguments for the general employee information and the
+# specific salaried employee information like employee id, full name, and weekly dues to
+# the union services. It initializes the data attributes with these values
+
+    def __init__(self, employee_id, last_name, first_name, salary, commission_rate, weekly_dues):
+    # Call the superclass's __init__method and pass the arguments necessary for the
+    # general employee; self is also passed as an argument.
+        Employee.__init__(self, employee_id, last_name, first_name, weekly_dues)
+
+    # inititalizes the __salary, __commission_rate attributes
+    def __init__(self, salary, commissioned, base_rate, commission, salaried, view):
+        self._salary = salary
+        self._commissioned = commissioned
+        self._base_rate = base_rate
+        self._commission = commission
+        self._salaried = salaried
+        self._view = view
+
+    def get_commissioned(self):
+        return self._commissioned
+
+    def set_commissioned(self, value):
+        self._commissioned = value
+        self.update_view()
+
+        commissioned = property(self.get_commissioned, self.set_commissioned)
+
+    def get_base_rate(self):
+        return self._base_rate
+
+    def set_base_rate(self, value):
+        self._base_rate = value
+        self.update_view()
+
+        base_rate = property(self.get_base_rate, self.set_base_rate)
+
+    def get_commission(self):
+        return self._commission
+
+    def set_commission(self, value):
+        self._commission = value
+        self.update_view()
+
+        commission = property(self.get_commission, self.set_commission)
+
+    def get_salary(self):
+        return self._salary
+
+    def set_salary(self, value):
+        self._salary = value
+        self.update_view()
+
+        salary = property(self.get_salary, self.set_salary)
+
+    def get_salaried(self):
+        return self._salaried
+
+    def set_salaried(self, value):
+        self._salaried = value
+        self.update_view()
+
+        salaried = property(self.get_salaried, self.set_salaried)
+
+    def calculate_pay(self, paycheck):
+        paycheck.gross_pay = self.salary
+
+    def isPayday(self, date):
+        return self.schedule.isPayday(date)
+
+    def get_pay_period_start_date(self, date):
+        return self.schedule.get_pay_period_start_date(date)
+
+    def get_pay_period_end_date(self, date):
+        return self.schedule.get_pay_period_end_date(date)
+
+    def payday(self, paycheck):
+        self.classification.calculate_pay(paycheck)
+        self.affiliation.calculate_deductions(paycheck)
+        self.method.disposition(paycheck)
+        paycheck.net_pay = paycheck.gross_pay - paycheck.deductions
+
+    def update_view(self):
+        pass
+
+
+class NoAffiliation(object):
+    def calculate_deductions(self, paycheck):
+        paycheck.deductions = 0
