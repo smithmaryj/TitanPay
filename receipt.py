@@ -1,8 +1,6 @@
 import Employees
 
-class Receipt(Employees.SalariedEmployee):
-
-    def __init__(self, receipt_date, sale_amount):
-                self.receipt_date = receipt_date
-                self.sale_amount = sale_amount
-
+class Receipt(object):
+    def __init__(self, date, amount):
+        self.date = date
+        self.amount = amount
