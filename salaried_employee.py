@@ -1,14 +1,30 @@
 # Mary J Smith, 2295760
 # The Employees class represents a superclass of general employee information needed for Titan Payroll to process
+from employee import Employee
+from receipt import Receipt
 
-import Employees
-import receipt
+class SalariedEmployee(Employee):
+    def __init__(self, salary, commission_rate, base_rate, salaried, view):
+        self.salary = salary
+        self._commission_rate = commission_rate
+        self._base_rate = base_rate
+        self._salaried = salaried
+        self.view = view
+
+class AddSalesReceipt(object):
+    def __init__(self, employee_id, date, amount, db):
+        self.employee_id = employee_id
+        self.date = date
+        self.amount = amount
+
+    def execute(self):
+        e = self.get_employee(self.employee_id)
+        pc = e.classification
+        pc.add_sales_receipt(Receipt(self.date, self.amount))
 
 class CommissionRate (Employees.SalariedEmployee):
     def __init__(self, sale_amount):
         receipt.__init__(self, sale_amount)
-
-
 
 class ListOfReceipts(receipt.Receipt):
     def __init__(self, receipts):
