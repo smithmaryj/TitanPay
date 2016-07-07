@@ -1,5 +1,5 @@
 from accounting.employee import Employee
-from accounting.timecards import TimeCard
+from accounting.timecards import TimeCards
 from accounting.direct_deposit_payment import DirectDepositPayment
 from accounting.mail_payment import MailPayment
 from accounting.pick_up_payment import PickUpPayment
@@ -23,12 +23,12 @@ class HourlyEmployee(Employee):
 
     def clock_in(self, timecard_date, start_time):
         end_time = ""
-        timecard = TimeCard(timecard_date, start_time, end_time)
+        timecard = TimeCards(timecard_date, start_time, end_time)
         self.__timeCards.append(timecard)
 
     def clock_out(self, timecard_date, end_time):
         end_time = ""
-        timecard = TimeCard(timecard_date, start_time, end_time)
+        timecard = TimeCards(timecard_date, start_time, end_time)
         self.__timeCards.append(timecard)
         for i in self.__timeCards:
             if i.get_date() == timecard_date:
@@ -58,7 +58,8 @@ class HourlyEmployee(Employee):
             pickuppay = PickUpPayment(total_pay, full_name)
             output = pickuppay.get_output()
 
-        elif Employee.get_pay(self) == "DD":
-            ddeposit = DirectDepositPayment(total_pay, bank_name, routing_number, account_id, deposit_amt)
+        else:
+            Employee.get_pay(self) == "DD"
+            ddeposit = DirectDepositPayment(total_pay, full_name)
             output = ddeposit.get_output()
 
