@@ -8,4 +8,6 @@ class MailPayment(PaymentMethod):
         self.address = address
 
     def get_output(self):
-        output = "Mailing a check for $" + str(format(self.__pay_amt, ',.2f')) + " to "
+        output = "Mailing a check for $" + str(format(self.__pay_amt, ',.2f')) + " to " + self.__address \
+                  + " for " + self.__name
+        return output
