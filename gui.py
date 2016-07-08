@@ -49,7 +49,7 @@ class MyGUI:
         
     def do_something(self):
         tkinter.messagebox.showinfo('Process Payroll',
-                                    'Running Payroll')
+                                    'Run the Payroll')
 
 
 my_gui = MyGUI()

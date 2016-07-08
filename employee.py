@@ -23,6 +23,3 @@ class Employee:
 
     def get_full_address (self):
         return self.__full_address
-
-
-

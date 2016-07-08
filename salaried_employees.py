@@ -46,7 +46,7 @@ class SalariedEmployee(Employee):
 
             else:
                 Employee.get_pay(self) == "DD"
-                ddeposit = DirectDepositPayment(total_pay, full_name)
+                ddeposit = DirectDepositPayment(pay_amt, full_name)
                 output = ddeposit.get_output()
 
             return output
